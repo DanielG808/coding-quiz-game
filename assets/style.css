@@ -6,6 +6,7 @@
 :root {
     --light: aquamarine;
     --dark: rgb(42, 206, 151);
+    --darker: rgb(31, 150, 110);
 }
 
 header {
@@ -81,4 +82,9 @@ main h2 {
     box-shadow: 0 0.4rem 1.4rem 0 var(--dark);
     transition: transform 150ms;
     transform: scale(0.9);
+ }
+
+ main button:active {
+    transition: transform 150ms;
+    transform: scale(0.75);
  }
