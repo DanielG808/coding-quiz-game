@@ -1,0 +1,84 @@
+* {
+    /* border: 1px solid red; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+:root {
+    --light: aquamarine;
+    --dark: rgb(42, 206, 151);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header a {
+    font-size: larger;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+header a:hover {
+    color: var(--light);
+}
+
+header div {
+    font-size: large;
+}
+
+main {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    margin: 16px;
+    padding: 16px;
+}
+
+main h1 {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: bolder;
+    margin: 16px;
+    padding: 16px;
+}
+
+main h2 {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    font-weight: bolder;
+    margin: 16px;
+    padding: 16px;
+}
+
+ main p {
+    display: flex;
+    flex-flow: column wrap;
+    font-size: larger;
+    font-weight: 100;
+    margin: 16px;
+    padding: 16px;
+ }
+
+ main button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
+    color: black;
+    background-color: var(--dark);
+    max-width: max-content;
+    border-radius: 7px;
+    margin: 16px;
+ }
+
+ main button:hover {
+    background-color: var(--light);
+    box-shadow: 0 0.4rem 1.4rem 0 var(--dark);
+    transition: transform 150ms;
+    transform: scale(0.9);
+ }
