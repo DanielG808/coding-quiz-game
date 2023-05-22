@@ -88,3 +88,7 @@ main h2 {
     transition: transform 150ms;
     transform: scale(0.75);
  }
+
+ .hide {
+    display: none;
+ }

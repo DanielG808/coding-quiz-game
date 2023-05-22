@@ -8,14 +8,12 @@ var pEl = document.querySelector(".sub-heading")
 // DATA / STATE
 
 var userScore = 10;
+var currentQuestionIndex = 0;
 var questions = [
     {
-        question: "What is JavaScript?"
-        option1: "A font-style developed in coffee shops during the 1600s"
-        option2: "A legal document governing modern coffee supply-chain laws"
-        option3: "An object-oriented programming language first released in 1995"
-        option4: "A technique barista's use to make latte art"
-        key: 4
+        question: "What is JavaScript?",
+        options: ["A font-style developed in coffee shops during the 1600s", "A legal document governing modern coffee supply-chain laws",  "An object-oriented programming language first released in 1995", "A technique barista's use to make latte art"],
+        key: 2
     }
 ]
 
@@ -53,16 +51,52 @@ function startTimer() {
     
 };
 
-function displayQuestion(
+function displayQuestion(index) {
 
-)
+    // h1 -> title
+    h1El.innerText = questions[index].question;
+
+    // hide <p> tag
+    pEl.classList.add("hide")
+    startButton.classList.add("hide")
+    var promptElm =  document.createElement("p");
+    // show the options as buttons
+    for (i=0; i < questions[index].options.length; i++) {
+        // creating a new HTML tag "button"
+        var optionButton = document.createElement("button");
+        // Grabbing text from options array
+        optionButton.innerText = questions[index].options[i];
+        // Populating each button with text
+
+        //add event listner
+        optionButton.addEventListener("click", function(){
+           
+            var selectedBtnTxt = this.innerText;
+            var optionsIndex = questions[index].key
+            var correctAnswer  = questions[index].options[optionsIndex];
+           
+            if (selectedBtnTxt === correctAnswer) {
+                console.log("Correct")
+                promptElm.innerText = "Correct!";
+            } else {
+                console.log("Incorrect")
+                promptElm.innerText = "Incorrect!";
+            }
+           
+        })
+
+        document.querySelector('.option-button-container').append(optionButton);
+        document.querySelector('.option-button-container').append(promptElm);
+    }
+    
+}
 
 function startGame() {
     console.log("The game has started.");
     // start the timer
     startTimer();
     // display first question and options
-    displayQuestion();
+    displayQuestion(currentQuestionIndex);
 };
 
 // USER INTERACTIONS
