@@ -7,8 +7,9 @@ var pEl = document.querySelector(".sub-heading")
 
 // DATA / STATE
 
-var userScore = 10;
+var userScore = 0;
 var currentQuestionIndex = 0;
+var timeLeft = 31;
 var questions = [
     {
         question: "What is JavaScript?",
@@ -19,25 +20,21 @@ var questions = [
 
 // FUNCTIONS
 
-function getUserScore() {
-}
-
 function gameOver() {
     // end the game
     console.log("Game over");
     // display message for out of time
     h1El.textContent = "You're out of time!";
+    // display number correct message
+    var amountCorrect = document.createElement("p");
+    amountCorrect.innerText = "You got " + userScore + " out of " + questions.length + " correct!";
     // store the score locally
     currentScore = localStorage.setItem("score", userScore);
-    // display score for this round (could add if statement that tells user they did good, ok, bad based on score)
-    pEl.textContent = "You got " + userScore + " out of " + questions.length + " correct!"
-
+    
 }
 
 function startTimer() {
     console.log("Start Timer");
-    // create a time interval
-    var timeLeft = 5;
     var timerInterval = setInterval(function() {
         // subtract a second
         timeLeft--;
@@ -51,7 +48,7 @@ function startTimer() {
     
 };
 
-function displayQuestion(index) {
+function answerQuestion(index) {
 
     // h1 -> title
     h1El.innerText = questions[index].question;
@@ -77,10 +74,13 @@ function displayQuestion(index) {
            
             if (selectedBtnTxt === correctAnswer) {
                 console.log("Correct")
-                promptElm.innerText = "Correct!";
+                userScore++;
+                console.log(userScore)
+                promptElm.innerText = "You got it!";
             } else {
                 console.log("Incorrect")
-                promptElm.innerText = "Incorrect!";
+                timeLeft = timeLeft - 5
+                promptElm.innerText = "Wrong answer!";
             }
            
         })
@@ -93,10 +93,10 @@ function displayQuestion(index) {
 
 function startGame() {
     console.log("The game has started.");
+    // display first question and options
+    answerQuestion(currentQuestionIndex);
     // start the timer
     startTimer();
-    // display first question and options
-    displayQuestion(currentQuestionIndex);
 };
 
 // USER INTERACTIONS
