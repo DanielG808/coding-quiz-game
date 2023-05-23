@@ -5,19 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz</title>
-    <link rel="stylesheet" href="assets/reset.css">
+    <!-- <link rel="stylesheet" href="assets/reset.css"> -->
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <header>
-        <a href="">View high scores</a>
+        <button class="high-scores">View high scores</button>
         <div class="timer">Time: 0</div>
     </header>
     <main>
+        <!-- elements visible when the page opens -->
         <h1 class="heading">Coding Quiz Challenge!</h1>
-        <div class="option-button-container"></div>
         <p class="sub-heading">Answer as many questions as you can before the timer finishes! But make your choices wisely. Each incorrect answer will subsctract 5 seconds from the Timer. Good luck!</p>
         <button class="start"><h2>Start Game</h2></button>
+        
+        <!-- elements visible after user interactions -->
+        <div class="option-button-container" ></div>
+        <div id="form-container"></div>
+        <table class="high-score-table" id="hide">
+            <tr>
+                <td class="person">Name</td>
+                <td class="score">Score</td>
+            </tr>
+        </table>
+        <div class="high-score-input"></div>
     </main>
 </body>
 <script src="./assets/script.js"></script>

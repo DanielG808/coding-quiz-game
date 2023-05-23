@@ -1,6 +1,7 @@
 * {
     /* border: 1px solid red; */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
 }
 
 :root {
@@ -16,13 +17,15 @@ header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-header a {
+header button {
     font-size: larger;
     color: var(--dark);
     text-decoration: none;
+    border: none;
+    background-color: transparent;
 }
 
-header a:hover {
+header button:hover {
     color: var(--light);
 }
 
@@ -54,6 +57,7 @@ main h2 {
     font-weight: bolder;
     margin: 16px;
     padding: 16px;
+    background-color: transparent;
 }
 
  main p {
@@ -89,6 +93,29 @@ main h2 {
     transform: scale(0.75);
  }
 
+.high-score-table {
+    border: 2px solid black;
+    min-width: 600px;
+    min-height: 400px;
+}
+
+.person {
+    border: 1px solid black;
+    padding: 16px;
+    margin: 0px;
+ }
+
+ .score {
+    border: 1px solid black;
+    padding: 16px;
+    margin: 0px;
+ }
+
  .hide {
+    display: none;
+ }
+
+ 
+ #hide {
     display: none;
  }
